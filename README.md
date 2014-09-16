@@ -21,10 +21,14 @@ Configuring Hostname and Port
 - Default values are <code>localhost:8080</code>
 
 Running with Maven
---------
+------------------
 - Run the Application with <code>mvn exec:java </code>
 
 Connect to Server
 -----------------
 - Run <code>telnet localhost 8080</code>
-- To stop the server press <code>Ctrl + C</code> on the Server Terminal and any Client will drop. 
+- To stop the server press <code>Ctrl + C</code> on the Server Terminal and any Client will drop.
+
+Generate Maven Archetype from Project
+-------------------------------------
+ - Work In progress
