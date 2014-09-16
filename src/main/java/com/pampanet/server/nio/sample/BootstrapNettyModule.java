@@ -13,6 +13,14 @@ import com.google.inject.Provides;
 
 public class BootstrapNettyModule extends AbstractModule {
 
+	private final String hostname;
+	private final int port;
+	
+	public BootstrapNettyModule(String hostname,int port) {
+		this.hostname = hostname;
+		this.port = port;
+	}
+
 	@Override
 	protected void configure() {
 		bind(BootstrapNettyServer.class);
@@ -20,7 +28,7 @@ public class BootstrapNettyModule extends AbstractModule {
 
 	@Provides
 	public SocketAddress provideSocketAddress() {
-		return new InetSocketAddress(8080);
+		return new InetSocketAddress(hostname,port);
 	}
 
 	@Provides

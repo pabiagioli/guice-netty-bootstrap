@@ -8,13 +8,16 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.util.logging.Logger;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 public class BootstrapNettyServer {
 
+	private static final Logger logger = Logger.getLogger(BootstrapNettyServer.class.getName()); 
 	private final Provider<ChannelInitializer<SocketChannel>> channelInitialer;
 	private final EventLoopGroup bossGroup;
 	private final EventLoopGroup workerGroup;
@@ -29,7 +32,9 @@ public class BootstrapNettyServer {
 	}
 	
 	public void run() throws Exception {
-		System.out.println("Entered run method");
+		int port = ((InetSocketAddress)socketAddress).getPort();
+		String host = ((InetSocketAddress)socketAddress).getHostString();
+		logger.info("Running ServerBootstrap on "+host+":"+port);
         try {
             ServerBootstrap b = new ServerBootstrap(); 
             b.group(bossGroup, workerGroup)

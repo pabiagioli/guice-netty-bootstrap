@@ -7,8 +7,8 @@ public class BootstrapServerHandler extends ChannelInboundHandlerAdapter{
 	
 	@Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        ctx.write(msg); // (1)
-        ctx.flush(); // (2)
+        ctx.write(msg); 
+        ctx.flush();
     }
 	
 	@Override
