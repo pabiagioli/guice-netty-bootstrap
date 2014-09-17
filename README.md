@@ -22,6 +22,7 @@ Configuring Hostname and Port
 
 Running with Maven
 ------------------
+- Package with <code>mvn clean package</code> and run the app with <code>java -jar guice-netty-bootstrap &lt;hostname&gt; &lt;port&gt;</code>
 - Run the Application with <code>mvn exec:java </code>
 
 Connect to Server
